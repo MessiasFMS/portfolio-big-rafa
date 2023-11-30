@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ImgURL from "../../assets/imgs/photo-primary.png";
 import { LinkIcon } from '@heroicons/react/20/solid';
 
