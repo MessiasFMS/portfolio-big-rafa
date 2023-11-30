@@ -1,5 +1,3 @@
-import { Bars3CenterLeftIcon } from "@heroicons/react/20/solid";
-
 export function NavigationBar() {
     return (
         <div className="w-screen fixed border-b border-[#e7e7e7] dark:border-[#3b3b3b] flex h-16 px-10 md:px-28 items-center justify-between">
