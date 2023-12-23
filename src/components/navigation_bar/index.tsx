@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import { Link, animateScroll as scroll } from 'react-scroll';
 
 
@@ -9,6 +10,7 @@ interface LinkItem {
 }
 
 export function NavigationBar() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
     const links: LinkItem[] = [
         { id: 'link1', to: 'inicio', label: 'Início' },
@@ -23,6 +25,10 @@ export function NavigationBar() {
             const titleRect = title?.getBoundingClientRect();
             navbar.style.marginTop = titleRect ? `${titleRect.height}px` : '0';
         }
+    };
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
     };
     return (
         <div className="w-screen z-50 bg-[#fdfdfd] fixed border-b border-[#e7e7e7] dark:border-[#3b3b3b] dark:bg-[#202020] flex h-16 px-10 md:px-28 items-center justify-between">
@@ -51,13 +57,37 @@ export function NavigationBar() {
                 ))}
             </ul>
             <div className="md:hidden block">
-                <button>
+                <button onClick={toggleMobileMenu}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
-
                 </button>
             </div>
+
+            {/* Menu para Dispositivos Móveis (exibido ao clicar no botão) */}
+            <div className={`md:hidden ${isMobileMenuOpen ? 'fixed z-50 bg-[#fdfdfd] fixed border-b border-[#e7e7e7] dark:border-[#3b3b3b] dark:bg-[#202020] w-screen left-0 px-10 top-16' : 'hidden'}`}>
+                <ul className="text-lg font-semibold">
+                    {links.map((link) => (
+                        <li key={link.id}>
+                            <Link
+                                className="hover:text-[#05498d] transition-colors cursor-pointer block py-2"
+                                activeClass="active"
+                                to={link.to}
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={500}
+                                onSetActive={() => {
+                                    handleScroll();
+                                    setIsMobileMenuOpen(false);
+                                }}
+                            >
+                                {link.label}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
-    )
+    );
 };
