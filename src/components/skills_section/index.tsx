@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react';
 import { SkillCard } from './skill_card';
 import { Coffee } from '@phosphor-icons/react';
 import { Atom, Database, FileCss, FileHtml, FileJs } from '@phosphor-icons/react/dist/ssr';
