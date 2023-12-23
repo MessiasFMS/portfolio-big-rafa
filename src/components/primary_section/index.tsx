@@ -3,7 +3,7 @@ import { LinkIcon } from '@heroicons/react/20/solid';
 
 export function PrimarySection() {
     return (
-        <main className='mx-10 md:mx-28 first-letter:min-w-screen min-h-screen flex flex-col-reverse md:flex-row items-center'>
+        <main id="inicio" className='mx-10 md:mx-28 min-w-screen min-h-screen flex flex-col-reverse md:flex-row items-center'>
             <div
                 className='flex flex-1 flex-col'
             >
@@ -11,7 +11,7 @@ export function PrimarySection() {
                     className=' font-bold text-xl md:text-4xl   '
                 >
                     Olá 🤙🏼, sou  <span className='animate-pulse bg-gradient-to-l from-[#096fd4] to-[#096fd4] text-transparent bg-clip-text'>Rafael Oliveira</span> e pretendo me tornar um especialista em desenvolvimento de softwares.</h1>
-                <p className='text-base md:text-lg text-justify mt-7'>
+                <p className='text-base md:text-lg text-justify mt-7 dark:dark:text-zinc-400'>
                     Estou em busca de me tornar um profissional de tecnologia com conhecimento e que possa contribuir com
                     as pessoas e organizações em seus projetos.
 
